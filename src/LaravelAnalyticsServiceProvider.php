@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelAnalytics;
+namespace WouterVanDamme\LaravelAnalytics;
 
 use Google_Client;
 use Illuminate\Support\ServiceProvider;
@@ -26,7 +26,7 @@ class LaravelAnalyticsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('Spatie\LaravelAnalytics\LaravelAnalytics', function ($app) {
+        $this->app->bind('WouterVanDamme\LaravelAnalytics\LaravelAnalytics', function ($app) {
 
             $googleApiHelper = $this->getGoogleApiHelperClient();
 
@@ -35,7 +35,7 @@ class LaravelAnalyticsServiceProvider extends ServiceProvider
             return $laravelAnalytics;
         });
 
-        $this->app->alias('Spatie\LaravelAnalytics\LaravelAnalytics', 'laravelAnalytics');
+        $this->app->alias('WouterVanDamme\LaravelAnalytics\LaravelAnalytics', 'laravelAnalytics');
         dd($this->site);
     }
 
