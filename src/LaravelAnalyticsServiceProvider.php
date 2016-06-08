@@ -7,14 +7,18 @@ use Illuminate\Support\ServiceProvider;
 
 class LaravelAnalyticsServiceProvider extends ServiceProvider
 {
+
+    private $site;
     /**
      * Bootstrap the application events.
      */
     public function boot()
     {
-        $this->publishes([
-            __DIR__.'/config/laravel-analytics.php' => config_path('laravel-analytics.php'),
-        ]);
+//        $this->publishes([
+//            __DIR__.'/config/laravel-analytics.php' => config_path('laravel-analytics.php'),
+//        ]);
+
+        $this->site = \SiteHelper::getSite();
     }
 
     /**
@@ -32,6 +36,7 @@ class LaravelAnalyticsServiceProvider extends ServiceProvider
         });
 
         $this->app->alias('Spatie\LaravelAnalytics\LaravelAnalytics', 'laravelAnalytics');
+        dd($this->site);
     }
 
     /**
